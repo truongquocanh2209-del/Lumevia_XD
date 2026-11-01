@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LUMEVIA StudyOS — Học có chủ đích, tiến bộ có dấu vết">
+  <meta property="og:description" content="Không gian học tập cá nhân để lên lịch, tập trung, ghi chú, ôn tập và nhìn thấy tiến bộ.">
+  <meta property="og:image" content="lumevia-mark.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="description" content="LUMEVIA StudyOS — không gian học tập cá nhân để quản lý thời gian, lưu tài nguyên, luyện tập và theo dõi tiến bộ.">
+  <title>LUMEVIA StudyOS — Học có chủ đích, tiến bộ có dấu vết</title>
+  <link rel="icon" type="image/png" href="lumevia-favicon.png">
+<link rel="preload" href="assets/fonts/DejaVuSerif.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="site.css?v=3.7.0">
+</head>
+<body>
+  <a class="skip-link" href="#pageContent">Bỏ qua điều hướng</a>
+  <div id="welcomeScreen" class="welcome-screen">
+    <picture class="welcome-landscape" aria-hidden="true"><source media="(max-width: 650px)" srcset="assets/scenes/valley-mobile.webp"><img src="assets/scenes/valley.webp" alt="" width="1920" height="1280" fetchpriority="high"></picture>
+    <header class="welcome-header">
+      <a class="brand-lockup" href="#home" aria-label="LUMEVIA StudyOS">
+        <img class="brand-mark" src="lumevia-mark.png" alt="" aria-hidden="true">
+        <span><strong>LUMEVIA</strong><small>FOCUS · LEARN · RISE</small></span>
+      </a>
+      <div class="welcome-header-right"><span class="live-dot"></span> Không gian học tập của riêng bạn</div>
+    </header>
+    <main class="welcome-layout">
+      <section class="welcome-copy">
+        <div class="eyebrow">A CALMER, BRIGHTER YOU.</div>
+        <h1>Focus.<br>Learn.<br><em>Rise.</em></h1>
+        <p class="welcome-lead">Chậm lại một nhịp. Đi xa hơn mỗi ngày.<br>Không gian riêng để tập trung, nuôi dưỡng tri thức và nhìn thấy mình tiến bộ.</p>
+        <div class="welcome-cta"><button class="button button-primary" data-action="welcome-start">Bắt đầu hành trình <span>↗</span></button><a class="welcome-explore" href="#studyosExplore">Khám phá StudyOS ↓</a></div>
+        <div class="welcome-caption"><span>01 / YOUR QUIET CORNER</span><span>Học theo nhịp của bạn.</span></div>
+      </section>
+      <section id="welcomeAuth" class="auth-card" aria-label="Đăng nhập hoặc tạo tài khoản">
+        <div class="auth-card-top"><img class="auth-mini-mark" src="lumevia-mark.png" alt="" aria-hidden="true"><div><p class="muted eyebrow-small">CHÀO MỪNG BẠN</p><h2 id="authTitle">Mở không gian của bạn</h2></div></div>
+        <div class="auth-tabs" role="tablist" aria-label="Chế độ tài khoản">
+          <button class="auth-tab active" data-action="auth-tab" data-tab="login" role="tab" aria-selected="true">Đăng nhập</button>
+          <button class="auth-tab" data-action="auth-tab" data-tab="signup" role="tab" aria-selected="false">Tạo tài khoản</button>
+        </div>
+        <form id="loginForm" class="auth-form" autocomplete="on">
+          <label for="loginUsername">Tên tài khoản</label><div class="input-wrap"><span>＠</span><input id="loginUsername" name="username" autocomplete="username" minlength="3" maxlength="24" pattern="[A-Za-z0-9_.\x2d]{3,24}" placeholder="Ví dụ: minhanh09" required></div>
+          <label for="loginPassword">Mật khẩu</label><div class="input-wrap"><span>⌑</span><input id="loginPassword" name="password" type="password" autocomplete="current-password" maxlength="128" placeholder="Nhập mật khẩu" required><button class="input-eye" type="button" data-action="toggle-password" data-target="loginPassword" aria-label="Hiện hoặc ẩn mật khẩu">◉</button></div>
+          <p class="auth-note">Đăng nhập được ghi nhớ trên thiết bị này đến khi bạn đăng xuất. Dữ liệu không tự đồng bộ giữa các thiết bị.</p>
+          <button class="button button-primary button-full" type="submit">Vào StudyOS <span>↗</span></button>
+          <div class="auth-divider"><span>một góc nhỏ dành cho bạn</span></div>
+          <div class="auth-safe"><span>♧</span><span><b>Ưu tiên riêng tư</b><small>Dữ liệu học tập không tự gửi lên máy chủ.</small></span></div>
+        </form>
+        <form id="signupForm" class="auth-form hidden" autocomplete="on">
+          <label for="signupDisplay">Tên hiển thị</label><div class="input-wrap"><span>✧</span><input id="signupDisplay" name="displayName" maxlength="32" placeholder="Tên hiển thị trong không gian học tập" required></div>
+          <label for="signupUsername">Tên tài khoản</label><div class="input-wrap"><span>＠</span><input id="signupUsername" name="username" autocomplete="username" minlength="3" maxlength="24" pattern="[A-Za-z0-9_.\x2d]{3,24}" placeholder="3–24 ký tự, không dấu" required></div>
+          <label for="signupPassword">Tạo mật khẩu</label><div class="input-wrap"><span>⌑</span><input id="signupPassword" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" placeholder="Ít nhất 8 ký tự" required><button class="input-eye" type="button" data-action="toggle-password" data-target="signupPassword" aria-label="Hiện hoặc ẩn mật khẩu">◉</button></div>
+          <label for="signupPasswordConfirm">Nhập lại mật khẩu</label><div class="input-wrap"><span>⌑</span><input id="signupPasswordConfirm" name="passwordConfirm" type="password" autocomplete="new-password" minlength="8" maxlength="128" placeholder="Nhập lại chính xác" required></div>
+          <p class="auth-note">Mật khẩu được băm bằng PBKDF2 trên thiết bị. Đây không phải xác thực máy chủ và không đồng bộ qua thiết bị khác.</p>
+          <button class="button button-primary button-full" type="submit">Tạo không gian học tập <span>↗</span></button>
+        </form>
+        <div class="auth-error" id="authMessage" role="status" aria-live="polite"></div>
+        <div class="auth-smallprint">Trên thiết bị dùng chung, hãy đăng xuất trước khi rời máy. Tài khoản ở bản này chỉ hoạt động trong trình duyệt hiện tại.</div>
+      </section>
+    </main>
+    <section id="studyosExplore" class="welcome-experience" aria-label="Khám phá StudyOS">
+      <div class="experience-intro"><p class="eyebrow">BỚT XAO NHÃNG. THÊM Ý NGHĨA.</p><h2>Một nơi cho<br>những bước tiến nhỏ.</h2></div>
+      <article><span>01 / TẬP TRUNG</span><h3>Tìm lại sự tập trung.</h3><p>Không gian thiên nhiên, đồng hồ đếm ngược và bối cảnh do bạn lựa chọn.</p></article>
+      <article><span>02 / KIẾN THỨC</span><h3>Giữ điều đáng nhớ.</h3><p>Ghi chú, tài liệu, flashcard và đề thi kết nối trong cùng một không gian.</p></article>
+      <article><span>03 / TIẾN BỘ</span><h3>Thấy mình tiến bộ.</h3><p>Lịch học, lịch sử luyện tập và thống kê từ chính hành trình của bạn.</p></article>
+    </section>
+    <footer class="welcome-footer"><span>© <span id="yearFooter"></span> LUMEVIA StudyOS</span><span>Dành cho những tâm hồn ham học <b>✦</b></span><a href="README.md" target="_blank" rel="noopener">Hướng dẫn & quyền riêng tư</a></footer>
+  </div>
+
+  <div id="appShell" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <a class="brand-lockup" href="#dashboard" aria-label="Trang chủ LUMEVIA">
+          <img class="brand-mark" src="lumevia-mark.png" alt="" aria-hidden="true"><span><strong>LUMEVIA</strong><small>FOCUS · LEARN · RISE</small></span>
+        </a>
+        <button class="icon-button sidebar-close" data-action="close-sidebar" aria-label="Đóng thanh điều hướng">×</button>
+      </div>
+      <div class="sidebar-profile">
+        <div class="avatar avatar-medium" id="sidebarAvatar">🌙</div>
+        <div class="sidebar-profile-info"><b id="sidebarDisplay">Học viên</b><small id="sidebarRank">Người mới · LV 1</small></div>
+        <button class="tiny-icon-button" data-action="navigate" data-page="profile" aria-label="Hồ sơ">⌄</button>
+      </div>
+      <div class="sidebar-section-label">KHÔNG GIAN CỦA BẠN <span>⌘</span></div>
+      <nav class="token-nav" id="tokenNav" aria-label="Các chức năng">
+        <button class="nav-token active" data-action="navigate" data-page="dashboard"><span class="token-icon icon-cyan">⌂</span><span>Toàn cảnh</span><kbd>01</kbd></button>
+        <button class="nav-token" data-action="navigate" data-page="planner"><span class="token-icon icon-blue">▦</span><span>Lịch học tập</span><kbd>02</kbd></button>
+        <button class="nav-token" data-action="navigate" data-page="deadlines"><span class="token-icon icon-amber">⌛</span><span>Deadline & Hạn chót</span></button>
+        <button class="nav-token" data-action="navigate" data-page="notes"><span class="token-icon icon-green">✎</span><span>Sổ ghi chú</span><kbd>03</kbd></button>
+        <button class="nav-token" data-action="navigate" data-page="focus"><span class="token-icon icon-purple">◷</span><span>Focus Room</span><kbd>04</kbd></button>
+        <button class="nav-token" data-action="navigate" data-page="vault"><span class="token-icon icon-amber">⌘</span><span>Kho tri thức</span><kbd>05</kbd></button>
+        <button class="nav-token" data-action="navigate" data-page="quiz"><span class="token-icon icon-pink">✳</span><span>Quiz Lab</span><kbd>06</kbd></button>
+        <button class="nav-token" data-action="navigate" data-page="flashcards"><span class="token-icon icon-green">▤</span><span>Flashcards</span><kbd>07</kbd></button>
+        <button class="nav-token" data-action="navigate" data-page="exam"><span class="token-icon icon-pink">◈</span><span>Exam Mode</span></button>
+        <button class="nav-token" data-action="navigate" data-page="review"><span class="token-icon icon-cyan">✧</span><span>Ôn thông minh</span></button>
+        <button class="nav-token" data-action="navigate" data-page="stats"><span class="token-icon icon-cyan">↗</span><span>Tiến trình</span><kbd>08</kbd></button>
+        <button class="nav-token" data-action="navigate" data-page="play"><span class="token-icon icon-orange">✦</span><span>Góc giải trí</span></button>
+        <button class="nav-token" data-action="navigate" data-page="settings"><span class="token-icon icon-gray">⚙</span><span>Cài đặt</span></button>
+      </nav>
+      <div class="sidebar-lower">
+        <div class="quest-mini-card"><div class="quest-mini-top"><span>✧ HÀNH TRÌNH HÔM NAY</span><b id="sidebarDailyCount">0/0</b></div><div class="mini-progress"><span id="sidebarDailyBar"></span></div><p id="sidebarDailyHint">Mỗi bước nhỏ đều đáng giá.</p></div>
+        <button class="nav-token logout-token" data-action="logout"><span class="token-icon">⇥</span><span>Đăng xuất</span></button>
+      </div>
+      <div class="sidebar-bottom"><span class="live-dot"></span> Học theo nhịp của bạn <span class="sidebar-bottom-version">v3.7.0</span></div>
+    </aside>
+    <div class="sidebar-scrim" id="sidebarScrim" data-action="close-sidebar"></div>
+    <main class="main-shell">
+      <header class="topbar">
+        <div class="topbar-left"><button class="icon-button mobile-menu" data-action="open-sidebar" aria-label="Mở thanh điều hướng">☰</button><button type="button" class="icon-button page-back-button" id="pageBackButton" data-action="go-back" aria-label="Quay lại trang trước" title="Chưa có trang trước" disabled>←</button><div class="breadcrumbs"><span>FOCUS · LEARN · RISE</span><span class="breadcrumb-chevron">/</span><b id="pageCrumb">Toàn cảnh</b></div></div>
+        <div class="topbar-right"><button class="icon-button" data-action="open-command" aria-label="Tìm kiếm và lệnh nhanh" title="Tìm kiếm · Ctrl K">⌕</button><div class="date-pill live-clock-pill"><span aria-hidden="true">◷</span><time id="headerClock" aria-label="Giờ địa phương">--:--:--</time><span id="headerDate">Hôm nay</span></div><button class="icon-button notification-button" id="notificationButton" data-action="open-notifications" aria-label="Mở trung tâm thông báo" aria-haspopup="dialog" aria-controls="notificationOverlay" aria-expanded="false" title="Trung tâm thông báo"><svg class="bell-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/><path d="M9.6 3.2a2.5 2.5 0 0 1 4.8 0"/></svg><span class="notification-dot hidden" id="notificationDot" aria-hidden="true"></span><span class="bell-ripple" aria-hidden="true"></span></button><button class="avatar avatar-small" id="topAvatar" data-action="navigate" data-page="profile" aria-label="Mở hồ sơ">🌙</button></div>
+      </header>
+      <div id="pageContent" class="page-content" tabindex="-1"></div>
+      <footer class="app-footer"><span>✦ LUMEVIA StudyOS</span><span>Tiến bộ không cần hoàn hảo — chỉ cần tiếp tục.</span><button data-action="navigate" data-page="settings">Cài đặt riêng tư</button></footer>
+    </main>
+  </div>
+
+  <section id="focusOverlay" class="focus-overlay" role="dialog" aria-modal="true" aria-labelledby="focusHeadline" aria-label="Focus Room">
+    <div id="focusBackdrop" class="focus-backdrop" aria-hidden="true"></div><div class="focus-shade" aria-hidden="true"></div>
+    <div class="focus-overlay-top"><div class="brand-lockup"><img class="brand-mark" src="lumevia-mark.png" alt="" aria-hidden="true"><span><strong>LUMEVIA</strong><small>DEEP FOCUS</small></span></div><div class="focus-session-label"><span class="live-dot"></span><span id="focusSubjectLabel">Phiên tập trung</span></div><button class="icon-button focus-exit" data-action="stop-focus" aria-label="Kết thúc phiên tập trung">×</button></div>
+    <div class="focus-stage" id="focusStage">
+      <div class="focus-sticker focus-sticker-one" aria-hidden="true">✧</div><div class="focus-sticker focus-sticker-two" aria-hidden="true">🪐</div>
+      <p class="eyebrow">ONE THING AT A TIME</p>
+      <div class="focus-stage-meta"><span class="focus-stage-chip" id="focusModeChip">Tập trung sâu</span><span class="focus-stage-chip" id="focusThemeChip">🌲 Rừng sương</span><span class="focus-stage-chip" id="focusAmbientChip">Nhẹ nhàng</span></div>
+      <h1 id="focusHeadline">Dành thời gian cho điều quan trọng.</h1>
+      <div class="timer-ring" id="timerRing"><svg viewBox="0 0 240 240" aria-hidden="true"><circle class="timer-track" cx="120" cy="120" r="105"></circle><circle class="timer-progress" id="timerProgress" cx="120" cy="120" r="105"></circle></svg><div class="timer-reading"><strong id="timerText" aria-live="off">25:00</strong><span id="timerCaption">TẬP TRUNG</span></div></div>
+      <p class="focus-quote" id="focusQuote">Bạn không cần làm tất cả. Chỉ cần bắt đầu một việc.</p><p class="focus-stage-insight" id="focusStageInsight">Giữ nhịp vừa đủ. Tiến bộ bền vững luôn thắng sự quá sức.</p>
+      <div class="focus-controls"><button class="button button-ghost" data-action="stop-focus">Kết thúc</button><button class="button button-primary focus-pause-button" id="focusPauseBtn" data-action="pause-focus">Ⅱ Tạm dừng</button></div>
+      <p class="focus-key-hint">✦ Tắt bớt tab khác, thả lỏng vai và bắt đầu từ bước nhỏ nhất.</p>
+    </div>
+    <button id="focusStudioToggle" class="button focus-studio-toggle" data-action="focus-studio-toggle" aria-expanded="false" aria-controls="focusAppearanceStudio">☷ Không gian</button>
+    <aside id="focusAppearanceStudio" class="focus-appearance-studio hidden" aria-label="Điều chỉnh không gian"></aside>
+    <aside class="focus-daily-board hidden" id="focusDailyBoard" aria-label="Nhiệm vụ hôm nay"></aside>
+    <div class="focus-complete hidden" id="focusComplete"><div class="complete-orb">✦</div><p class="eyebrow">SESSION COMPLETE</p><h2>Hoàn thành một bước tiến!</h2><p id="focusCompleteText">Bạn đã dành thời gian cho chính mình.</p><button class="button button-primary" data-action="close-focus">Quay lại không gian học tập ↗</button></div>
+    <div class="focus-overlay-bottom"><span>✧ PRACTICE PRESENCE</span><span id="focusElapsedLabel">Mọi phút tập trung đều được ghi nhận.</span><span>YOUR PACE · YOUR PATH</span></div>
+  </section>
+
+  <div id="notificationOverlay" class="notification-overlay hidden" role="presentation"></div>
+  <div id="flashStudyOverlay" class="flash-study-overlay hidden" role="presentation" aria-hidden="true"></div>
+  <div id="toastRoot" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+  <input id="importFileInput" class="visually-hidden" type="file" accept="application/json,.json">
+  <script src="exam-import.js?v=3.7.0" defer></script>
+  <script src="evolution.js?v=3.7.0" defer></script>
+  <script src="aevora.js?v=3.7.0" defer></script>
+  <script src="next.js?v=3.7.0" defer></script>
+  <script src="studio.js?v=3.7.0" defer></script>
+  <script src="mastery30.js?v=3.7.0" defer></script>
+  <script src="profile30.js?v=3.7.0" defer></script>
+  <script src="app.js?v=3.7.0" defer></script>
+  <script src="motion32.js?v=3.7.0" defer></script>
+  <script src="upgrade33.js?v=3.7.0" defer></script>
+  <script src="experience37.js?v=3.7.0" defer></script>
+</body>
+</html>
